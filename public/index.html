@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My College | Home</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <!-- Header / Navbar -->
   <header>
-    <div class="logo">
-      <img src="images/logo.png" alt="My College Logo" />
-      <h1>My College</h1>
+    <div class="header-left">
+      <img src="images/logo.png" alt="College Logo">
     </div>
+    <div class="header-center">
+      <h1>My College</h1>
+      <p>Excellence in Education, Innovation, Leadership</p>
+    </div>
+    <div class="header-right">
+  <div class="header-notice-box">
+    <div class="header-notice-header">📰 Latest Notices</div>
+    <div class="header-notice-track">
+      <span>Admissions Open for 2026 — Apply Before Nov 30, 2025</span>
+      <span>Placement Drive on Dec 10, 2025 — Registration Required</span>
+      <span>Inter-college Fest — Volunteers Needed</span>
+      <span>New Research Lab Inauguration — Applications Invited</span>
+      <span>Scholarship Applications — Deadline Jan 15, 2026</span>
+      <span>Sports Day Registration — Feb 5, 2026</span>
+      <span>Guest Lecture on AI — Jan 25, 2026</span>
+      <span>Annual Cultural Fest — Registration Open</span>
+      <span>Library Book Fair — Jan 20-22, 2026</span>
+      <span>Alumni Meet — Feb 28, 2026</span>
+      <span>Workshop on Robotics — Feb 10, 2026</span>
+      <span>Blood Donation Camp — Feb 15, 2026</span>
+      <span>Research Paper Submission — Jan 30, 2026</span>
+      <span>College Website Maintenance — Jan 18, 2026</span>
+      <span>Industrial Visit — Feb 12, 2026</span>
+      <span>Exam Schedule Released — Jan 22, 2026</span>
+      <span>Parent-Teacher Meeting — Feb 20, 2026</span>
+      <span>Internship Applications — Jan 28, 2026</span>
+      <span>New Course Announcement — Feb 1, 2026</span>
+      <span>Festival Celebration — Feb 14, 2026</span>
+    </div>
+  </div>
+</div>
+
     <nav>
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
@@ -26,23 +59,32 @@
     </nav>
   </header>
 
-  <section class="banner fade-in">
-    <img src="images/campus.jpg" alt="College Campus" />
+  <!-- Banner Slider -->
+  <section class="banner">
+    <div class="banner-slider">
+      <img src="images/th1.jpg" alt="Campus 1" class="active">
+      <img src="images/th2.jpg" alt="Campus 2">
+      <img src="images/th3.jpg" alt="Campus 3">
+    </div>
     <div class="banner-text">
       <h2>Welcome to My College</h2>
-      <p>Dedicated to excellence in education and developing tomorrow's leaders.</p>
+      <p>Excellence in Education, Innovation, and Leadership</p>
+      <a href="admission.html" class="button">Apply Now</a>
     </div>
   </section>
 
-  <section class="intro fade-in delay-1">
+  <!-- About / Intro Section -->
+  <section class="intro colorful-text">
     <h2>Why Choose Us?</h2>
     <p>
-      Established in 1990, My College offers top-tier academic programs, experienced faculty, and cutting-edge facilities
-      to foster your success and innovation. We prepare our students to be industry-ready and socially responsible citizens.
+      Established in 1990, <span>My College</span> offers <span>top-tier academic programs</span>, <span>experienced faculty</span>, 
+      and <span>cutting-edge facilities</span> to foster your success and innovation.
+      We prepare our students to be <span>industry-ready</span> and <span>socially responsible citizens</span>.
     </p>
   </section>
 
-  <section class="highlights fade-in delay-2">
+  <!-- Highlights / Services -->
+  <section class="highlights colorful-text">
     <div class="highlight-card">
       <h3>Experienced Faculty</h3>
       <p>Our professors are leaders in their fields, committed to mentoring and shaping young minds with real-world experience.</p>
@@ -57,47 +99,75 @@
     </div>
   </section>
 
-  <section class="mission fade-in delay-3">
-    <h2>Our Mission & Vision</h2>
-    <p>
-      <strong>Mission:</strong> To empower students through quality education, innovation, and character development, preparing them for a global future.<br>
-      <strong>Vision:</strong> To become a leading educational institution that fosters creativity, research, and ethical values.
-    </p>
-  </section>
-
-  <section class="student-life fade-in delay-4">
-    <h2>Life at My College</h2>
-    <p>
-      Life at My College is filled with activities, events, and opportunities for growth. From cultural fests and seminars to
-      community outreach programs, every student experiences a balance of academics and fun.
-    </p>
-    <img src="images/student-life.jpg" alt="Students enjoying campus life" />
-  </section>
-
-  <section class="achievements fade-in delay-5">
-    <h2>Our Achievements</h2>
-    <ul>
-      <li>Ranked among the Top 10 Colleges in the region (2024).</li>
-      <li>Over 95% placement success across major industries.</li>
-      <li>Students won national-level hackathons and business competitions.</li>
-      <li>Collaborations with reputed universities and companies for internships.</li>
-    </ul>
-  </section>
-
-  <section class="testimonials fade-in delay-6">
-    <h2>What Our Students Say</h2>
-    <div class="testimonial">
-      <p>"My College helped me turn my passion into a career. The teachers are extremely supportive and the campus life is amazing!"</p>
-      <span>- Priya Sharma, B.Sc Computer Science (Alumni)</span>
-    </div>
-    <div class="testimonial">
-      <p>"The best part of My College is the focus on both academics and personal development. I gained confidence and lifelong friends here."</p>
-      <span>- Rahul Verma, MBA Student</span>
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <h2>Our Campus Gallery</h2>
+    <div class="gallery">
+      <div class="gallery-item"><img src="images/th1.jpg" alt="Gallery Image 1"></div>
+      <div class="gallery-item"><img src="images/th2.jpg" alt="Gallery Image 2"></div>
+      <div class="gallery-item"><img src="images/th3.jpg" alt="Gallery Image 3"></div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <h3>My College</h3>
+        <p>123 College Road, City, State, 456789</p>
+        <p>Email: info@mycollege.edu | Phone: +91 1234567890</p>
+      </div>
+      <div class="footer-center">
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="courses.html">Courses</a>
+          <a href="admission.html">Admission</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="events.html">Events</a>
+          <a href="notice.html">Notices</a>
+          <a href="teachers.html">Teachers</a>
+          <a href="students.html">Students</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-right">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
     <p>© 2025 My College | All Rights Reserved</p>
   </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Banner Slider
+    const slides = document.querySelectorAll('.banner-slider img');
+    let currentSlide = 0;
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 4000);
+
+    // Gallery Click - Enlarge
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    galleryItems.forEach(img => {
+      img.addEventListener('click', () => {
+        const overlay = document.createElement('div');
+        overlay.className = 'img-overlay';
+        overlay.innerHTML = `<img src="${img.src}" alt="Enlarged Image"><span class="close-btn">&times;</span>`;
+        document.body.appendChild(overlay);
+
+        overlay.querySelector('.close-btn').addEventListener('click', () => {
+          overlay.remove();
+        });
+      });
+    });
+  </script>
 </body>
 </html>
