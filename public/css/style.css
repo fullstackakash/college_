@@ -1,11 +1,13 @@
-/* reset + base */
+/* * reset + base */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 :root {
   --brand-dark: #064635;
   --brand-green: #28a745;
   --notice-bg: #198754;
   --white: #fff;
 }
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f0f2f5;
@@ -59,15 +61,79 @@ nav a, .footer-nav a {
 nav a:hover, nav a.active, .footer-nav a:hover { transform: translateY(-3px); }
 @keyframes neonGradient { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
 
-/* Banner */
-.banner { position:relative; overflow:hidden; border-radius:10px; max-height:450px; margin:20px auto; max-width:1200px; }
-.banner-slider { position:relative; height:450px; }
-.banner-slider img { position:absolute; top:0; left:0; width:100%; height:450px; object-fit:cover; opacity:0; transition:opacity 1s ease-in-out; border-radius:10px; }
-.banner-slider img.active { opacity:1; }
-.banner-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#fff; text-align:center; text-shadow:0 2px 12px rgba(0,0,0,0.7); }
-.banner-text h2 { font-size:2.8rem; margin-bottom:8px; }
-.button { padding:12px 20px; background:#0b6b3a; color:#fff; border-radius:6px; text-decoration:none; font-weight:bold; transition:0.3s; }
-.button:hover { background: var(--brand-green); transform: translateY(-2px); }
+/* ---------- BANNER ---------- */
+.banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  max-width: 1200px;
+  margin: 20px auto;
+  height: 500px;
+
+  /* Colorful background gradient */
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 25%, #a1c4fd 50%, #c2e9fb 75%, #ffecd2 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.banner-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-slider img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;        /* Maintain aspect ratio */
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  border-radius: 10px;
+}
+
+.banner-slider img.active {
+  opacity: 1;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+  z-index: 10;
+}
+
+.banner-text h2 { font-size: 2.8rem; margin-bottom: 8px; }
+
+.button {
+  padding: 12px 20px;
+  background: #0b6b3a;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: var(--brand-green);
+  transform: translateY(-2px);
+}
 
 /* Sections base */
 section { max-width:1200px; margin:20px auto; padding:30px 20px; background:#fff; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.07); }
@@ -78,155 +144,68 @@ section { max-width:1200px; margin:20px auto; padding:30px 20px; background:#fff
 .highlight-card { flex:1 1 280px; background:#e6f4ea; padding:22px; border-radius:12px; text-align:center; transition:transform 0.3s, background 0.3s; }
 .highlight-card:hover { background: var(--brand-green); color:#fff; transform:translateY(-6px); }
 
-/* ---------- GALLERY (THUMBNAILS LINE-BY-LINE) ---------- */
+/* ---------- GALLERY ---------- */
 .gallery-section h2 { text-align:center; margin-bottom:15px; }
-
-/* container: column layout so images appear one-per-line */
-.gallery {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-  padding: 8px 0;
-}
-
-/* thumbnail item size (small) */
+.gallery { display: flex; flex-direction: column; gap: 12px; align-items: center; padding: 8px 0; }
 .gallery-item {
-  width: 100%;
-  max-width: 520px;     /* thumbnail width */
-  cursor: pointer;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  background: #fff;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px;
+  width: 100%; max-width: 520px; cursor: pointer; border-radius: 8px; overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08); background: #fff; display: flex; align-items: center; gap: 12px; padding: 10px;
 }
-
-/* small thumbnail appearance */
 .gallery-item img {
-  display: block;
-  width: 160px;        /* thumbnail width */
-  height: 100px;       /* thumbnail height */
-  object-fit: cover;
-  transition: transform 0.2s ease, filter 0.25s ease, box-shadow .22s ease;
-  border-radius: 8px;
-  flex-shrink: 0;
+  display: block; width: 160px; height: 100px; object-fit: cover;
+  transition: transform 0.2s ease, filter 0.25s ease, box-shadow .22s ease; border-radius: 8px; flex-shrink: 0;
 }
-
-/* caption style */
-.gallery-item figcaption {
-  font-size: 0.95rem;
-  color: #222;
-}
-
-/* subtle hover zoom on thumbnail */
+.gallery-item figcaption { font-size: 0.95rem; color: #222; }
 .gallery-item:hover img { transform: scale(1.03); }
 
-/* ---------- STRONG COLOR BOOST for th4 - th12 ---------- */
-/* Use both a strong filter and a pseudo overlay blend for punch */
-
-/* apply to the figure that has class "boost" and images with class "color-boost" */
 .gallery-item.boost img.color-boost {
   filter: saturate(2.05) contrast(1.22) brightness(1.06);
   box-shadow: 0 8px 26px rgba(0,0,0,0.22);
   transition: filter .22s ease, transform .22s ease, box-shadow .22s ease;
 }
-
-/* more punch on hover */
 .gallery-item.boost:hover img.color-boost {
   filter: saturate(2.25) contrast(1.28) brightness(1.08) hue-rotate(4deg);
   transform: scale(1.05);
   box-shadow: 0 14px 36px rgba(0,0,0,0.28);
 }
-
-/* pseudo-element overlay to increase warmth/highlights using mix-blend */
-.gallery-item.boost {
-  position: relative;
-}
+.gallery-item.boost { position: relative; }
 .gallery-item.boost::after {
-  content: "";
-  position: absolute;
-  left: 12px;      /* aligns with image left (padding considered) */
-  top: 10px;
-  width: 160px;
-  height: 100px;
-  border-radius: 8px;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 30% 20%, rgba(255,220,140,0.12), transparent 25%),
-    linear-gradient(120deg, rgba(255,100,60,0.06), rgba(40,170,255,0.04));
-  mix-blend-mode: screen;
-  opacity: 0.95;
-  transition: opacity .22s ease, transform .22s ease;
-  z-index: 1;
+  content: ""; position: absolute; left: 12px; top: 10px; width: 160px; height: 100px;
+  border-radius: 8px; pointer-events: none;
+  background: radial-gradient(circle at 30% 20%, rgba(255,220,140,0.12), transparent 25%), linear-gradient(120deg, rgba(255,100,60,0.06), rgba(40,170,255,0.04));
+  mix-blend-mode: screen; opacity: 0.95; transition: opacity .22s ease, transform .22s ease; z-index: 1;
 }
+.gallery-item.boost:hover::after { opacity: 1; transform: scale(1.02); }
 
-/* hover overlay stronger */
-.gallery-item.boost:hover::after {
-  opacity: 1;
-  transform: scale(1.02);
-}
-
-/* When overlay enlarged (img-overlay), apply mild boost so big image remains vivid */
-.img-overlay img {
-  filter: saturate(1.18) contrast(1.06) brightness(1.03);
-}
-
-/* Overlay styles for enlarged image */
+.img-overlay img { filter: saturate(1.18) contrast(1.06) brightness(1.03); }
 .img-overlay {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.88);
-  z-index: 9999;
-  padding: 24px;
+  position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.88); z-index: 9999; padding: 24px;
 }
-.img-overlay .overlay-content {
-  position: relative;
-  max-width: 95%;
-  max-height: 90%;
-  z-index: 1000;
-}
-.img-overlay img {
-  display:block;
-  max-width: 100%;
-  max-height: 85vh;
-  border-radius: 8px;
-  box-shadow: 0 12px 44px rgba(0,0,0,0.6);
-}
-.overlay-close {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background: transparent;
-  border: none;
-  font-size: 2.8rem;
-  color: #fff;
-  cursor: pointer;
-  width: 48px;
-  height: 48px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+.img-overlay .overlay-content { position: relative; max-width: 95%; max-height: 90%; z-index: 1000; }
+.img-overlay img { display:block; max-width: 100%; max-height: 85vh; border-radius: 8px; box-shadow: 0 12px 44px rgba(0,0,0,0.6); }
+.overlay-close { position: absolute; top: -10px; right: -10px; background: transparent; border: none; font-size: 2.8rem; color: #fff; cursor: pointer; width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; }
 
-/* prevent scroll when overlay open */
 .no-scroll { overflow: hidden; }
 
 /* Footer */
-footer { background: var(--brand-dark); color: #fff; padding: 30px; border-radius: 6px; margin-top: 20px; }
-footer .footer-content { display:flex; flex-wrap:wrap; justify-content:space-around; gap:20px; text-align:center; }
+footer {
+  background: var(--brand-dark);
+  color: #fff;
+  padding: 30px;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+footer .footer-content {
+  display:flex; flex-wrap:wrap; justify-content:space-around; gap:20px; text-align:center;
+}
 footer .social-icons img { width:32px; margin:0 6px; transition: transform 0.3s; }
 footer .social-icons img:hover { transform: scale(1.3); }
 
 /* Responsive tweaks */
 @media (max-width: 768px) {
   nav, .footer-nav { flex-direction: column; gap: 8px; }
+  .banner { height: 300px; }
   .banner-text h2 { font-size: 2rem; }
   .highlight-card { flex-basis: 100%; }
   footer .footer-content { flex-direction: column; gap: 15px; }
